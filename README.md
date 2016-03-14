@@ -233,6 +233,20 @@ Additionally, it's highly recommended using pylint for style and syntax validati
         """Performs operation blah."""
     ```
 
+  - TODO Comments: Use TODO comments for code that is temporary, a short-term solution, 
+	or good-enough but not perfect. TODOs should include the string TODO in all caps, 
+	followed by the name, e-mail address, or other identifier of the person who can best 
+	provide context about the problem referenced by the TODO, in parentheses. A colon is 
+	optional. A comment explaining what there is to do is required. The main purpose is 
+	to have a consistent TODO format that can be searched to find the person who can 
+	provide more details upon request. A TODO is not a commitment that the person 
+	referenced will fix the problem. Thus when you create a TODO, it is almost always 
+	your name that is given.
+	
+	```python
+    # TODO(xyz@surfline.com): Improve this algorithm using advanced sorting approach.
+    ```
+  	
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
