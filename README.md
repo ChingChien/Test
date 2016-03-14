@@ -1,12 +1,13 @@
 # Python Style Guide
 
 ## Introduction
-Python is the a scripting language used at. This style guide is a list of dos and don'ts for Python programs.
-In particular, it is based on PEP8 and the practice guide of Google Python style guide.
+Python is the a scripting language used at. This style guide is a list of dos and don'ts 
+for Python programs. In particular, it is based on PEP8 and the practice guide of Google 
+Python style guide.
 
-In overall, *readability* and *consistency* are the keys for Python developers, in coding style.
-To help you format code correctly with Eclipse IDE, we've created a settings file `eclipse`.
-So that , you can import and let Eclipse apply the appropriate 
+In overall, *readability* and *consistency* are the keys for Python developers, in coding 
+style. To help you format code correctly with Eclipse IDE, we've created a settings file 
+`eclipse`. So that , you can import and let Eclipse apply the appropriate 
 Additionally, it's highly recommended using pylint for style and syntax validation. 
 
 ## Table of Contents
@@ -50,7 +51,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Semicolons
 
-  - Do not terminate your lines with semi-colons and do not use semi-colons to put two commands on the same line.
+  - Do not terminate your lines with semi-colons and do not use semi-colons to put two 
+    commands on the same line.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -69,7 +71,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 ## Indentation
 
   - Indent your code blocks with 4 spaces. Never use tabs or mix tabs and spaces. 
-    In cases of implied line continuation, you should align wrapped elements either vertically, as per the examples in the line length section; or using a hanging indent of 4 spaces, in which case there should be no argument on the first line.
+    In cases of implied line continuation, you should align wrapped elements either 
+    vertically, as per the examples in the line length section; or using a hanging indent 
+    of 4 spaces, in which case there should be no argument on the first line.
     
     ```python
     # Aligned with opening delimiter
@@ -86,7 +90,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Blank Lines
 
-  - Two blank lines between top-level definitions, be they function or class definitions. One blank line between method definitions and between the class line and the first method. Use single blank lines as you judge appropriate within functions or methods.
+  - Two blank lines between top-level definitions, be they function or class definitions. 
+    One blank line between method definitions and between the class line and the first 
+    method. Use single blank lines as you judge appropriate within functions or methods.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -114,7 +120,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     if x == 6:
         print x , y
     ```
-    * No whitespace before the open paren/bracket that starts an argument list, indexing or slicing.
+    * No whitespace before the open paren/bracket that starts an argument list, indexing 
+      or slicing.
     
     ```python
     # Good 
@@ -125,7 +132,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     spam (1)
     dict['key'] = list [2]
     ```    
-    * Surround binary operators with a single space on either side for assignment (=), comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), and Booleans (and, or, not).
+    * Surround binary operators with a single space on either side for assignment (=), 
+      comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), and Booleans (and, 
+      or, not).
     
     ```python
     # Good 
@@ -134,7 +143,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     # Bad
     x==1
     ```    
-    * Don't use spaces around the '=' sign when used to indicate a keyword argument or a default parameter value.
+    * Don't use spaces around the '=' sign when used to indicate a keyword argument or a 
+      default parameter value.
     
     ```python
     # Good 
@@ -148,14 +158,80 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Comments
 
-  - Doc Strings
-  	A doc string is a string that is the first statement in a package, module, class or function. These strings can be extracted automatically through the __doc__ member of the object and are used by `pydoc`.
-     use the three double-quote """ format for doc strings (per PEP 257). A doc string should be organized as a summary line (one physical line) terminated by a period, question mark, or exclamation point, followed by a blank line, followed by the rest of the doc string starting at the same cursor position as the first quote of the first line.
+	Comments should be complete sentences. If a comment is a phrase or sentence, its first 
+	word should be capitalized, unless it is an identifier that begins with a lower case 
+	letter. If a comment is short, the period at the end can be omitted. Block comments 
+	generally consist of one or more paragraphs built out of complete sentences, and each 
+	sentence should end in a period.
+	
+  - Inline Comments: An inline comment is a comment on the same line as a statement. 
+    Inline comments should be separated by at least two spaces from the statement. They 
+    should start with a # and a single space.
+    
+  - Block Comments: Block comments generally apply to some (or all) code that follows 
+  	them, and are indented to the same level as that code. Each line of a block comment 
+  	starts with a # and a single space (unless it is indented text inside the comment). 
+  	Paragraphs inside a block comment are separated by a line containing a single # .
+  
+  - Documentation Strings (a.k.a. "docstrings"): Write docstrings for all public modules, 
+    functions, classes, and methods. Docstrings are not necessary for non-public methods, 
+    but you should have a comment that describes what the method does. This comment should
+    appear after the def line. Use the three double-quote """ format for doc strings.
+    
+    ```python
+    # Example for functions and methods 
+    def fetch_db_rows(big_table, keys, other_silly_variable=None):
+    """Fetches rows from a table.
 
-  - [6.2](#comments--modules) Every file should contain license boilerplate. Choose the appropriate boilerplate for the license used by the project (for example, Apache 2.0, BSD, LGPL, GPL)
+    Retrieves rows pertaining to the given keys from the table instance
+    Silly things may happen if other_silly_variable is not None.
 
-  - [6.3](#comments--functions-methods) 
+    Args:
+        big_table: A table instance.
+        keys: A sequence of strings representing the key of each table row
+            to fetch.
+        other_silly_variable: Another optional variable, that has a much
+            longer name than the other args, and which does nothing.
 
+    Returns:
+        A dict mapping keys to the corresponding table row data
+        fetched. Each row is represented as a tuple of strings. For
+        example:
+
+        {'Serak': ('Rigel VII', 'Preparer'),
+         'Zim': ('Irk', 'Invader'),
+         'Lrrr': ('Omicron Persei 8', 'Emperor')}
+
+        If a key from the keys argument is missing from the dictionary,
+        then that row was not found in the table.
+
+    Raises:
+        IOError: An error occurred accessing the table object.
+    """
+    pass
+    ```
+    
+    ```python
+    # Example for classes 
+    class SampleClass(object):
+    """Summary of class here.
+
+    Longer class information....
+    Longer class information....
+
+    Attributes:
+        likes_spam: A boolean indicating if we like SPAM or not.
+        eggs: An integer count of the eggs we have laid.
+    """
+
+    def __init__(self, likes_spam=False):
+        """Inits SampleClass with blah."""
+        self.likes_spam = likes_spam
+        self.eggs = 0
+
+    def public_method(self):
+        """Performs operation blah."""
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
