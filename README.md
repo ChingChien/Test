@@ -158,7 +158,7 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Comments
 
-	Comments should be complete sentences. If a comment is a phrase or sentence, its first 
+	# Comments should be complete sentences. If a comment is a phrase or sentence, its first 
 	word should be capitalized, unless it is an identifier that begins with a lower case 
 	letter. If a comment is short, the period at the end can be omitted. Block comments 
 	generally consist of one or more paragraphs built out of complete sentences, and each 
