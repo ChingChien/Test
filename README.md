@@ -4,7 +4,7 @@
 Python is the a scripting language used at. This style guide is a list of dos and don'ts for Python programs.
 In particular, it is based on PEP8 and the practice guide of Google Python style guide.
 
-In overall, *readability* and *consistency* are the keys for good coding style.
+In overall, *readability* and *consistency* are the keys for Python developers, in coding style.
 To help you format code correctly with Eclipse IDE, we've created a settings file `eclipse`.
 So that , you can import and let Eclipse apply the appropriate 
 Additionally, it's highly recommended using pylint for style and syntax validation. 
@@ -74,11 +74,11 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     
     ```python
     # Aligned with opening delimiter
-    foo = long_function_name(var_one, var_two,
-                             var_three, var_four)
+    foo = function_name(var_one, var_two,
+                        var_three, var_four)
                              
 	# 4-space hanging indent; nothing on first line
-    foo = long_function_name(
+    foo = function_name(
         var_one, var_two, var_three,
         var_four)
     ```
@@ -95,10 +95,55 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
   - Follow standard typographic rules for the use of spaces around punctuation.
     * No whitespace inside parentheses, brackets or braces.
+    
+    ```python
+    # Good 
+    spam(ham[1], {eggs: 2}, [])
+
+    # Bad
+    spam( ham[ 1 ], { eggs: 2 }, [ ] )
+    ```
+    
     * No whitespace before a comma, semicolon, or colon. 
+    
+    ```python
+    # Good 
+    if x == 6:
+        print x, y
+
+    # Bad
+    if x == 6:
+        print x , y
+    ```
     * No whitespace before the open paren/bracket that starts an argument list, indexing or slicing.
+    
+    ```python
+    # Good 
+    spam(1)
+    dict['key'] = list[2]
+
+    # Bad
+    spam (1)
+    dict['key'] = list [2]
+    ```    
     * Surround binary operators with a single space on either side for assignment (=), comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), and Booleans (and, or, not).
+    
+    ```python
+    # Good 
+    x == 1
+
+    # Bad
+    x==1
+    ```    
     * Don't use spaces around the '=' sign when used to indicate a keyword argument or a default parameter value.
+    
+    ```python
+    # Good 
+    def function_name(real, imag=0.0): return another_function(r=real, i=imag)
+
+    # Bad
+    def function_name(real, imag = 0.0): return another_function(r = real, i = imag)
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
