@@ -12,9 +12,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 ## Table of Contents
 
   1. [Semicolons](#semicolons)
-  1. [Line length](#line-length)
+  1. [Line Length](#line-length)
   1. [Indentation](#indentation)
-  1. [Blank lines](#blank-lines)
+  1. [Blank Lines](#blank-lines)
   1. [Whitespace](#whitespace)
   1. [Comments](#comments)
   1. [Functions](#functions)
@@ -54,16 +54,15 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 **[⬆ back to top](#table-of-contents)**
 
-## Line length
+## Line Length
 
-  <a name="line-length--max"></a><a name="2.1"></a>
-  - [2.1](#line-length--max) Maximum line length is 80 characters.
+  - Maximum line length is 80 characters.
 
-  <a name="line-length--exceptions"></a><a name="2.2"></a>
-  - [2.2](#line-length--exceptions) Exceptions: `Long import statements` or `URLs in comments` 
+  - Exceptions: 
+  	* Long import statements
+  	* URLs in comments
     
-  <a name="line-length--nope"></a><a name="2.3"></a>
-  - [2.3](#line-length--nope) Avoid using backslash line continuation.
+  - Avoid using backslash line continuation.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -85,7 +84,7 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 **[⬆ back to top](#table-of-contents)**
 
-## Blank lines
+## Blank Lines
 
   - Two blank lines between top-level definitions, be they function or class definitions. One blank line between method definitions and between the class line and the first method. Use single blank lines as you judge appropriate within functions or methods.
 
@@ -149,14 +148,12 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Comments
 
-  <a name="comments--docstrings"></a><a name="6.1"></a>
-  - [6.1](#comments--docstrings)  A doc string is a string that is the first statement in a package, module, class or function. These strings can be extracted automatically through the __doc__ member of the object and are used by `pydoc`.
+  - Doc Strings
+  	A doc string is a string that is the first statement in a package, module, class or function. These strings can be extracted automatically through the __doc__ member of the object and are used by `pydoc`.
      use the three double-quote """ format for doc strings (per PEP 257). A doc string should be organized as a summary line (one physical line) terminated by a period, question mark, or exclamation point, followed by a blank line, followed by the rest of the doc string starting at the same cursor position as the first quote of the first line.
 
-  <a name="comments--modules"></a><a name="6.2"></a>
   - [6.2](#comments--modules) Every file should contain license boilerplate. Choose the appropriate boilerplate for the license used by the project (for example, Apache 2.0, BSD, LGPL, GPL)
 
-  <a name="comments--functions-methods"></a><a name="6.3"></a>
   - [6.3](#comments--functions-methods) 
 
 
