@@ -4,7 +4,7 @@
 Python is the a scripting language used at. This style guide is a list of dos and don'ts for Python programs.
 In particular, it is based on PEP8 and the practice guide of Google Python style guide.
 
-In overall, readability and consistency are the keys for good coding style.
+In overall, *readability* and *consistency* are the keys for good coding style.
 To help you format code correctly with Eclipse IDE, we've created a settings file `eclipse`.
 So that , you can import and let Eclipse apply the appropriate 
 Additionally, it's highly recommended using pylint for style and syntax validation. 
@@ -12,11 +12,11 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 ## Table of Contents
 
   1. [Semicolons](#semicolons)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
+  1. [Line length](#line-length)
+  1. [Indentation](#indentation)
+  1. [Blank lines](#blank-lines)
+  1. [Whitespace](#whitespace)
+  1. [Comments](#comments)
   1. [Functions](#functions)
   1. [Arrow Functions](#arrow-functions)
   1. [Constructors](#constructors)
@@ -54,396 +54,54 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 **[⬆ back to top](#table-of-contents)**
 
-## References
+## Line length
 
-  <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  <a name="line-length--max"></a><a name="2.1"></a>
+  - [2.1](#line-length--max) Maximum line length is 80 characters.
 
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
-
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
-
-    // good
-    const a = 1;
-    const b = 2;
-    ```
-
-  <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
-
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
-
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
-
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
-
-  <a name="references--block-scope"></a><a name="2.3"></a>
-  - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
-
-    ```javascript
-    // const and let only exist in the blocks they are defined in.
-    {
-      let a = 1;
-      const b = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
-    ```
+  <a name="line-length--exceptions"></a><a name="2.2"></a>
+  - [2.2](#line-length--exceptions) Exceptions: `Long import statements` or `URLs in comments` 
+    
+  <a name="line-length--nope"></a><a name="2.3"></a>
+  - [2.3](#line-length--nope) Avoid using backslash line continuation.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Objects
+## Indentation
 
-  <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
-
-    ```javascript
-    // bad
-    const item = new Object();
-
-    // good
-    const item = {};
-    ```
-
-  <a name="objects--reserved-words"></a><a name="3.2"></a>
-  - [3.2](#objects--reserved-words) If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
-
-    ```javascript
-    // bad
-    const superman = {
-      default: { clark: 'kent' },
-      private: true,
-    };
-
-    // good
-    const superman = {
-      defaults: { clark: 'kent' },
-      hidden: true,
-    };
-    ```
-
-  <a name="objects--reserved-words-2"></a><a name="3.3"></a>
-  - [3.3](#objects--reserved-words-2) Use readable synonyms in place of reserved words. jscs: [`disallowIdentifierNames`](http://jscs.info/rule/disallowIdentifierNames)
-
-    ```javascript
-    // bad
-    const superman = {
-      class: 'alien',
-    };
-
-    // bad
-    const superman = {
-      klass: 'alien',
-    };
-
-    // good
-    const superman = {
-      type: 'alien',
-    };
-    ```
-
-  <a name="es6-computed-properties"></a><a name="3.4"></a>
-  - [3.4](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
-
-    > Why? They allow you to define all the properties of an object in one place.
-
-    ```javascript
-
-    function getKey(k) {
-      return `a key named ${k}`;
-    }
-
-    // bad
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-    };
-    obj[getKey('enabled')] = true;
-
-    // good
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
-    };
-    ```
-
-  <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.5](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
-
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
-
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
-
-    // good
-    const atom = {
-      value: 1,
-
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
-
-  <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.6](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
-
-    > Why? It is shorter to write and descriptive.
-
-    ```javascript
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      lukeSkywalker: lukeSkywalker,
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker,
-    };
-    ```
-
-  <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
-  - [3.7](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
-
-    > Why? It's easier to tell which properties are using the shorthand.
-
-    ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
-    };
-    ```
-
-  <a name="objects-quoted-props"></a><a name="3.8"></a>
-  - [3.8](#objects-quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
-
-  > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
-
-  ```javascript
-  // bad
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
-
-  // good
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
+  - Indent your code blocks with 4 spaces. Never use tabs or mix tabs and spaces. 
+    In cases of implied line continuation, you should align wrapped elements either vertically, as per the examples in the line length section; or using a hanging indent of 4 spaces, in which case there should be no argument on the first line.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Arrays
+## Blank lines
 
-  <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
-
-    ```javascript
-    // bad
-    const items = new Array();
-
-    // good
-    const items = [];
-    ```
-
-  <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use Array#push instead of direct assignment to add items to an array.
-
-    ```javascript
-    const someStack = [];
-
-    // bad
-    someStack[someStack.length] = 'abracadabra';
-
-    // good
-    someStack.push('abracadabra');
-    ```
-
-  <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
-
-    ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
-
-    for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
-    }
-
-    // good
-    const itemsCopy = [...items];
-    ```
-
-  <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use Array#from.
-
-    ```javascript
-    const foo = document.querySelectorAll('.foo');
-    const nodes = Array.from(foo);
-    ```
-
-  <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
-
-    ```javascript
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map(x => x + 1);
-
-    // bad
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = memo.concat(item);
-    });
-
-    // good
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = flatten;
-      return flatten;
-    });
-
-    // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
-
-    // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
-
-      return false;
-    });
-    ```
+  - Two blank lines between top-level definitions, be they function or class definitions. One blank line between method definitions and between the class line and the first method. Use single blank lines as you judge appropriate within functions or methods.
 
 **[⬆ back to top](#table-of-contents)**
 
-## Destructuring
+## Whitespace
 
-  <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+  - Follow standard typographic rules for the use of spaces around punctuation.
+    * No whitespace inside parentheses, brackets or braces.
+    * No whitespace before a comma, semicolon, or colon. 
+    * No whitespace before the open paren/bracket that starts an argument list, indexing or slicing.
+    * Surround binary operators with a single space on either side for assignment (=), comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), and Booleans (and, or, not).
+    * Don't use spaces around the '=' sign when used to indicate a keyword argument or a default parameter value.
 
-    > Why? Destructuring saves you from creating temporary references for those properties.
+**[⬆ back to top](#table-of-contents)**
 
-    ```javascript
-    // bad
-    function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+## Comments
 
-      return `${firstName} ${lastName}`;
-    }
+  <a name="comments--docstrings"></a><a name="6.1"></a>
+  - [6.1](#comments--docstrings)  A doc string is a string that is the first statement in a package, module, class or function. These strings can be extracted automatically through the __doc__ member of the object and are used by `pydoc`.
+     use the three double-quote """ format for doc strings (per PEP 257). A doc string should be organized as a summary line (one physical line) terminated by a period, question mark, or exclamation point, followed by a blank line, followed by the rest of the doc string starting at the same cursor position as the first quote of the first line.
 
-    // good
-    function getFullName(user) {
-      const { firstName, lastName } = user;
-      return `${firstName} ${lastName}`;
-    }
+  <a name="comments--modules"></a><a name="6.2"></a>
+  - [6.2](#comments--modules) Every file should contain license boilerplate. Choose the appropriate boilerplate for the license used by the project (for example, Apache 2.0, BSD, LGPL, GPL)
 
-    // best
-    function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
-    }
-    ```
-
-  <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring. jscs: [`requireArrayDestructuring`](http://jscs.info/rule/requireArrayDestructuring)
-
-    ```javascript
-    const arr = [1, 2, 3, 4];
-
-    // bad
-    const first = arr[0];
-    const second = arr[1];
-
-    // good
-    const [first, second] = arr;
-    ```
-
-  <a name="destructuring--object-over-array"></a><a name="5.3"></a>
-  - [5.3](#destructuring--object-over-array) Use object destructuring for multiple return values, not array destructuring. jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
-
-    > Why? You can add new properties over time or change the order of things without breaking call sites.
-
-    ```javascript
-    // bad
-    function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
-    }
-
-    // the caller needs to think about the order of return data
-    const [left, __, top] = processInput(input);
-
-    // good
-    function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
-    }
-
-    // the caller selects only the data they need
-    const { left, right } = processInput(input);
-    ```
+  <a name="comments--functions-methods"></a><a name="6.3"></a>
+  - [6.3](#comments--functions-methods) 
 
 
 **[⬆ back to top](#table-of-contents)**
