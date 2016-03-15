@@ -319,6 +319,7 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     # In source header you can declare encoding as below.
     # -*- coding: utf-8 -*-
     ```
+    
 **[⬆ back to top](#table-of-contents)**
 
 ## Programming Recommendations
@@ -329,5 +330,6 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     # In source header you can declare encoding as below.
     # -*- coding: utf-8 -*-
     ```
+    
 **[⬆ back to top](#table-of-contents)**
 
