@@ -291,7 +291,7 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 ## Naming
 
   - Overall Naming Convention:
-  	Note: "Internal" means internal to a module or protected or private within a class.
+  	`Note: "Internal" means internal to a module or protected or private within a class.`
   	* Prepending a single underscore `(_)` has some support for protecting module variables 
   	  and functions (not included with import * from)
   	* Prepending a double underscore `(__)` to an instance variable or method effectively 
