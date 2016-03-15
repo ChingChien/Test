@@ -291,14 +291,19 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 ## Naming
 
   - Overall Naming Convention:
-  
-  	`Note: "Internal" means internal to a module or protected or private within a class.`
   	* Prepending a single underscore `(_)` has some support for protecting module variables 
   	  and functions (not included with import * from)
   	* Prepending a double underscore `(__)` to an instance variable or method effectively 
   	  serves to make the variable or method private to its class.
   	* Place related classes and top-level functions together in a module.
   	* Use CapWords for class names, but lower_with_under.py for module names.
+  	
+  - Naming Summary:
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
   	
 
 **[⬆ back to top](#table-of-contents)**
