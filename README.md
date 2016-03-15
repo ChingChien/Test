@@ -368,8 +368,7 @@ style.
   - Avoid global variables.
   - List comprehensions are okay to use for simple cases. Complicated list comprehensions 
     or generator expressions can be hard to read.
-  
-    
+      
 **[⬆ back to top](#table-of-contents)**
 
 ## Code Analysis in Eclipse
