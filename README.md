@@ -70,7 +70,7 @@ style.
     foo = function_name(var_one, var_two,
                         var_three, var_four)
                              
-	# Aligned with 4-space hanging indent; nothing (i.e., no argument) on first line
+	# Aligned with 4-space hanging indent; nothing on first line
     foo = function_name(
         var_one, var_two, var_three,
         var_four)
@@ -138,10 +138,10 @@ style.
     
     ```python
     # Good 
-    def function_name(real, imag=0.0): return another_function(r=real, i=imag)
+    def func_name(real, imag=0.0): return another_func(r=real, i=imag)
 
     # Bad
-    def function_name(real, imag = 0.0): return another_function(r = real, i = imag)
+    def func_name(real, imag = 0.0): return another_func(r = real, i = imag)
     ```
     
     * Avoid trailing whitespace anywhere.
