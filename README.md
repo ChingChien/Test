@@ -6,9 +6,7 @@ for Python programs. In particular, it is based on [PEP 0008](https://www.python
 and the practice guide of [Google Python style guide](https://google.github.io/styleguide/pyguide.html).
 
 In overall, *readability* and *consistency* are the keys for Python developers, in coding 
-style. To help you format code correctly with Eclipse IDE, we've created a settings file 
-`eclipse`. So that , you can import and let Eclipse apply the appropriate 
-Additionally, it's highly recommended using pylint for style and syntax validation. 
+style.
 
 ## Table of Contents
 
@@ -23,6 +21,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   1. [Strings](#strings)
   1. [Source File Encoding](#source-file-encoding)
   1. [Programming Recommendations](#programming-recommendations)
+  1. [Code Analysis in Eclipse](#code-analysis-in-eclipse)
+  1. [Auto Code Formatting in Eclipse](#auto-code-formatting-in-eclipse)
 
 ## Semicolons
 
@@ -34,7 +34,7 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Line Length
 
-  - Maximum line length is 80 characters.
+  - Maximum line length is 79 characters.
 
   - Exceptions: 
   	* Long import statements
@@ -365,7 +365,6 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     if greeting == True:
     ```
 
-  - Run `pylint` or `pep8` over your code.
   - Avoid global variables.
   - List comprehensions are okay to use for simple cases. Complicated list comprehensions 
     or generator expressions can be hard to read.
@@ -373,3 +372,22 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     
 **[⬆ back to top](#table-of-contents)**
 
+## Code Analysis in Eclipse
+
+  - Run `pep8` or `pylint` over your code.
+  	* Enable pep8 in Eclipse with PyDev plugin: Go to Eclipse->Preferences. Choose 
+  	  PyDev->Editor->Code Analysis. Go to pep8.py tab. Choose the radio button for warning.
+  	  Click Apply, then OK. Restart Eclipse.
+  	* (Optionally) Enable pylint in Eclipse: Install pylint. Go to Eclipse->Preferences.
+  	  Choose PyDev->PyLint. Enable the Use PyLint option. Add the path to the PyLint 
+  	  executable. Click Apply, then OK. Restart Eclipse.
+    
+**[⬆ back to top](#table-of-contents)**
+
+## Auto Code Formatting in Eclipse
+
+  - Enable `autopep8` over your code using pep8 style: Go to Eclipse->Preferences. Choose 
+  	  PyDev->Editor->Code Style->Code Formatter. Check Use autopep8.py for code formatting.  	  
+  	  Click Apply, then OK. Restart Eclipse.  	
+    
+**[⬆ back to top](#table-of-contents)**
