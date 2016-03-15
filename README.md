@@ -91,58 +91,60 @@ style.
   - Follow standard typographic rules for the use of spaces.
     * No whitespace inside parentheses, brackets or braces.
     
-    ```python
-    # Good 
-    spam(ham[1], {eggs: 2}, [])
-
-    # Bad
-    spam( ham[ 1 ], { eggs: 2 }, [ ] )
-    ```
+        ```python
+        # Good 
+        spam(ham[1], {eggs: 2}, [])
+        
+        # Bad
+        spam( ham[ 1 ], { eggs: 2 }, [ ] )
+        ```
     
     * No whitespace before a comma, semicolon, or colon. 
     
-    ```python
-    # Good 
-    if x == 6:
-        print x, y
-
-    # Bad
-    if x == 6:
-        print x , y
-    ```
+        ```python
+        # Good 
+        if x == 6:
+            print x, y
+        
+        # Bad
+        if x == 6:
+            print x , y
+        ```
+        
     * No whitespace before the open paren/bracket that starts an argument list, indexing 
       or slicing.
     
-    ```python
-    # Good 
-    spam(1)
-    dict['key'] = list[2]
+        ```python
+        # Good 
+        spam(1)
+        dict['key'] = list[2]
 
-    # Bad
-    spam (1)
-    dict['key'] = list [2]
-    ```    
+        # Bad
+        spam (1)
+        dict['key'] = list [2]
+        ```
+            
     * Surround binary operators with a single space on either side for assignment (=), 
       comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), and Booleans (and, 
       or, not).
     
-    ```python
-    # Good 
-    x == 1
-
-    # Bad
-    x==1
-    ```    
+        ```python
+        # Good 
+        x == 1
+        
+        # Bad
+        x==1
+        ```    
     * Don't use spaces around the '=' sign when used to indicate a keyword argument or a 
       default parameter value.
     
-    ```python
-    # Good 
-    def func_name(real, imag=0.0): return another_func(r=real, i=imag)
+        ```python
+        # Good 
+        def func_name(real, imag=0.0): return another_func(r=real, i=imag)
 
-    # Bad
-    def func_name(real, imag = 0.0): return another_func(r = real, i = imag)
-    ```
+        # Bad
+        def func_name(real, imag = 0.0): return another_func(r = real, i = imag)
+        ```
     
     * Avoid trailing whitespace anywhere.
     
@@ -239,7 +241,7 @@ sentence should end in a period.
   - Imports should be on separate lines and are always put at the top of the file, just 
     after any module comments and doc strings and before module globals and constants. 
     Imports should be grouped with the order being most generic to least generic as below.
-    You should put a blank line between each group of imports.    
+    Additionally, you should put a blank line between each group of imports.    
     * standard library imports
     * related third-party imports
     * local application-specific imports
@@ -260,11 +262,14 @@ sentence should end in a period.
 
   - Overall Naming Convention:
   	* Prepending a single underscore `(_)` has some support for protecting module variables 
-  	  and functions (not included with import * from)
+  	  and functions (not included with import * from). In other words, it is to indicate 
+  	  to other programmers that the attribute or method is intended to be protected and 
+  	  should not be accessed publicly. This is similar to "protected member" in Java.
   	* Prepending a double underscore `(__)` to an instance variable or method effectively 
-  	  serves to make the variable or method private to its class.
+  	  serves to make the variable or method private to its class. It is to indicate that 
+  	  nobody should be able to access it from outside the class.
   	* Place related classes and top-level functions together in a module.
-  	* Use CapWords for class names, but lower_with_under.py for module names.
+  	* Use CapWords for class names, but lower_with_under.py for module filenames.
   	
   - Naming Summary (guidelines from Guido's recommendations):
   
