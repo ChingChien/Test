@@ -18,9 +18,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   1. [Blank Lines](#blank-lines)
   1. [Whitespace](#whitespace)
   1. [Comments](#comments)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Constructors](#constructors)
+  1. [Imports](#imports)
+  1. [Statements](#statements)
+  1. [Naming](#naming)
   1. [Modules](#modules)
   1. [Iterators and Generators](#iterators-and-generators)
   1. [Properties](#properties)
@@ -51,8 +51,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Semicolons
 
-  - Do not terminate your lines with semi-colons and do not use semi-colons to put two 
-    commands on the same line.
+  - Do not terminate your lines with semicolons and do not use semicolons to put two or 
+    more commands on the same line.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -64,23 +64,37 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   	* Long import statements
   	* URLs in comments
     
-  - Avoid using backslash line continuation.
+  - Avoid using backslash line continuation. The preferred way of wrapping long lines is 
+    by using Python's implied line continuation inside parentheses, brackets and braces. 
+    Long lines can be broken over multiple lines by wrapping expressions in parentheses.
+    
+    ```python
+    # Examples of implicit line join inside parentheses, brackets and braces.
+    foo = function_name(var_one, var_two,
+                        var_three, var_four)
+                                 
+    if (temperature == 78 and city == 'LA' and
+        wind == 10):
+        
+    my_str = ('This will create a very long long '
+              'long long long long long long long string')
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Indentation
 
-  - Indent your code blocks with 4 spaces. Never use tabs or mix tabs and spaces. 
+  - Use 4 spaces per indentation level. Never use tabs or mix tabs and spaces. 
     In cases of implied line continuation, you should align wrapped elements either 
-    vertically, as per the examples in the line length section; or using a hanging indent 
-    of 4 spaces, in which case there should be no argument on the first line.
+    vertically, or using a hanging indent of 4 spaces, in which case there should be no 
+    argument on the first line.
     
     ```python
-    # Aligned with opening delimiter
+    # Aligned vertically with opening delimiter
     foo = function_name(var_one, var_two,
                         var_three, var_four)
                              
-	# 4-space hanging indent; nothing on first line
+	# Aligned with 4-space hanging indent; nothing (i.e., no argument) on first line
     foo = function_name(
         var_one, var_two, var_three,
         var_four)
@@ -90,15 +104,15 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 
 ## Blank Lines
 
-  - Two blank lines between top-level definitions, be they function or class definitions. 
-    One blank line between method definitions and between the class line and the first 
-    method. Use single blank lines as you judge appropriate within functions or methods.
-
+  - Surround top-level function and class definitions with two blank lines.
+  - Method definitions inside a class are surrounded by a single blank line.
+  - Use blank lines in functions, sparingly, to indicate logical sections.
+  
 **[⬆ back to top](#table-of-contents)**
 
 ## Whitespace
 
-  - Follow standard typographic rules for the use of spaces around punctuation.
+  - Follow standard typographic rules for the use of spaces.
     * No whitespace inside parentheses, brackets or braces.
     
     ```python
@@ -153,6 +167,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     # Bad
     def function_name(real, imag = 0.0): return another_function(r = real, i = imag)
     ```
+    
+    * Avoid trailing whitespace anywhere.
+    
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -180,27 +197,23 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     
     ```python
     # Example for functions and methods 
-    def fetch_db_rows(big_table, keys, other_silly_variable=None):
+    def fetch_db_rows(table_name, keys):
     """Fetches rows from a table.
 
     Retrieves rows pertaining to the given keys from the table instance
-    Silly things may happen if other_silly_variable is not None.
 
     Args:
-        big_table: A table instance.
-        keys: A sequence of strings representing the key of each table row
-            to fetch.
-        other_silly_variable: Another optional variable, that has a much
-            longer name than the other args, and which does nothing.
+        table_name: A table instance.
+        keys: A string representing the key of each table row
+            to fetch.        
 
     Returns:
         A dict mapping keys to the corresponding table row data
         fetched. Each row is represented as a tuple of strings. For
         example:
 
-        {'Serak': ('Rigel VII', 'Preparer'),
-         'Zim': ('Irk', 'Invader'),
-         'Lrrr': ('Omicron Persei 8', 'Emperor')}
+        {'temperature': ('celsius', 'fahrenheit'),
+         'wind': ('km', 'mile')}
 
         If a key from the keys argument is missing from the dictionary,
         then that row was not found in the table.
@@ -213,40 +226,80 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     
     ```python
     # Example for classes 
-    class SampleClass(object):
-    """Summary of class here.
+    class Weather(object):
+    """Summary of Weather class here.
 
-    Longer class information....
-    Longer class information....
+    Additional class information....
+    Additional class information....
 
     Attributes:
-        likes_spam: A boolean indicating if we like SPAM or not.
-        eggs: An integer count of the eggs we have laid.
+        temperature: A numeric value indicating current weather temperature.
     """
 
-    def __init__(self, likes_spam=False):
-        """Inits SampleClass with blah."""
-        self.likes_spam = likes_spam
-        self.eggs = 0
+    def __init__(self, temperature):
+        """Inits Weather with blah."""
+        self.temperature = temperature
 
-    def public_method(self):
+    def public_method_get_temperature(self):
         """Performs operation blah."""
     ```
 
-  - TODO Comments: Use TODO comments for code that is temporary, a short-term solution, 
-	or good-enough but not perfect. TODOs should include the string TODO in all caps, 
-	followed by the name, e-mail address, or other identifier of the person who can best 
-	provide context about the problem referenced by the TODO, in parentheses. A colon is 
-	optional. A comment explaining what there is to do is required. The main purpose is 
-	to have a consistent TODO format that can be searched to find the person who can 
-	provide more details upon request. A TODO is not a commitment that the person 
-	referenced will fix the problem. Thus when you create a TODO, it is almost always 
-	your name that is given.
+  - TODO Comments: Use TODO comments for code that is temporary, a short-term,  
+    good-enough, but not perfect solution. TODOs should include the string TODO in all 
+    caps, followed by the e-mail address (in parentheses), or other identifier of the 
+    person who can provide context about the problem referenced by the TODO. 
+    A comment explaining what there is to do is required. The main TODO purpose is 
+	to have a consistent format that can be searched to find the person who can provide 
+	more details upon request. Note a TODO is not a commitment that the person referenced 
+	will fix the problem.
 	
 	```python
     # TODO(xyz@surfline.com): Improve this algorithm using advanced sorting approach.
     ```
   	
+**[⬆ back to top](#table-of-contents)**
+
+## Imports
+
+  - Imports should be on separate lines and are always put at the top of the file, just 
+    after any module comments and doc strings and before module globals and constants. 
+    Imports should be grouped with the order being most generic to least generic as below.
+    * standard library imports
+    * related third-party imports
+    * local application-specific imports
+    You should put a blank line between each group of imports.
+    
+  - Absolute imports are recommended, as they are usually more readable and tend to be 
+    better behaved (or at least give better error messages).
+    
+    ```python
+    import surfline.weather
+    from surfline.weather import wind
+    ```
+
+  - Avoid using wildcard imports.
+
+**[⬆ back to top](#table-of-contents)**
+
+## Statements
+
+  - Generally only one statement per line. However, you may put the result of a test on 
+    the same line as the test only if the entire statement fits on one line.
+
+**[⬆ back to top](#table-of-contents)**
+
+## Naming
+
+  - Overall Naming Convention:
+  	Note: "Internal" means internal to a module or protected or private within a class.
+  	* Prepending a single underscore `(_)` has some support for protecting module variables 
+  	  and functions (not included with import * from)
+  	* Prepending a double underscore `(__)` to an instance variable or method effectively 
+  	  serves to make the variable or method private to its class.
+  	* Place related classes and top-level functions together in a module.
+  	* Use CapWords for class names, but lower_with_under.py for module names.
+  	
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
