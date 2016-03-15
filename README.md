@@ -300,10 +300,10 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   	
   - Naming Summary:
   
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+	First Header  | Second Header
+	------------- | -------------
+	Content Cell  | Content Cell
+	Content Cell  | Content Cell
   	
 
 **[⬆ back to top](#table-of-contents)**
