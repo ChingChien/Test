@@ -301,6 +301,7 @@ style.
     judgement to decide between + and % (or format) though.
     
     ```python
+    # Examples
     x = a + b
     x = '%s, %s!' % (message1, message2)
     x = '{}, {}!'.format(message1, message2)
