@@ -1,7 +1,7 @@
 # Python Style Guide
 
 ## Introduction
-Python is the a scripting language used at Surfline. This style guide is a list of dos and 
+Python is a scripting language used at Surfline. This style guide is a list of dos and 
 don'ts for Python programs. In particular, it is based on [PEP 0008](https://www.python.org/dev/peps/pep-0008/) 
 and the practice guide of [Google Python style guide](https://google.github.io/styleguide/pyguide.html).
 
