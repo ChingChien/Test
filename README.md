@@ -299,11 +299,11 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   	* Use CapWords for class names, but lower_with_under.py for module names.
   	
   - Naming Summary:
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+  
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
   	
 
 **[⬆ back to top](#table-of-contents)**
