@@ -20,8 +20,8 @@ style.
   1. [Naming](#naming)
   1. [Strings](#strings)
   1. [Source File Encoding](#source-file-encoding)
-  1. [Programming Recommendations](#programming-recommendations)
   1. [My Testing](#my-testing)
+  1. [Programming Recommendations](#programming-recommendations)
 
 ## Semicolons
 
@@ -321,6 +321,17 @@ style.
     
 **[⬆ back to top](#table-of-contents)**
 
+## My Testing
+
+  - Code in the core Python distribution should always use UTF-8.
+  
+    ```python
+    # In source header you can declare encoding as below.
+    # -*- coding: utf-8 -*-
+    ```
+    
+**[⬆ back to top](#table-of-contents)**
+
 ## Programming Recommendations
 
   The following recommendations includes a subset from [PEP 0008](https://www.python.org/dev/peps/pep-0008/#programming-recommendations) 
@@ -368,15 +379,4 @@ style.
   - List comprehensions are okay to use for simple cases. Complicated list comprehensions 
     or generator expressions can be hard to read.
       
-**[⬆ back to top](#table-of-contents)**
-
-## My Testing
-
-  - Code in the core Python distribution should always use UTF-8.
-  
-    ```python
-    # In source header you can declare encoding as below.
-    # -*- coding: utf-8 -*-
-    ```
-    
 **[⬆ back to top](#table-of-contents)**
