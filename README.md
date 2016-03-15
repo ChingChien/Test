@@ -1,7 +1,7 @@
 # Python Style Guide
 
 ## Introduction
-Python is a scripting language used at. This style guide is a list of dos and 
+Python is a scripting language used at Surfline. This style guide is a list of dos and 
 don'ts for Python programs. In particular, it is based on [PEP 0008](https://www.python.org/dev/peps/pep-0008/) 
 and the practice guide of [Google Python style guide](https://google.github.io/styleguide/pyguide.html).
 
@@ -151,11 +151,11 @@ style.
 
 ## Comments
 
-	Comments should be complete sentences. If a comment is a phrase or sentence, its first 
-	word should be capitalized, unless it is an identifier that begins with a lower case 
-	letter. If a comment is short, the period at the end can be omitted. Block comments 
-	generally consist of one or more paragraphs built out of complete sentences, and each 
-	sentence should end in a period.
+Comments should be complete sentences. If a comment is a phrase or sentence, its first 
+word should be capitalized, unless it is an identifier that begins with a lower case 
+letter. If a comment is short, the period at the end can be omitted. Block comments 
+generally consist of one or more paragraphs built out of complete sentences, and each 
+sentence should end in a period.
 	
   - Inline Comments: An inline comment is a comment on the same line as a statement. 
     Inline comments should be separated by at least two spaces from the statement. They 
@@ -268,7 +268,7 @@ style.
   	
   - Naming Summary (guidelines from Guido's recommendations):
   
-	Type		               | Pubic	    		| Internal			   |	
+	Type		               | Public	    		| Internal			   |	
 	-------------------------- | ------------------ | -------------------- |
 	Packages	               | lower_with_under   | 					   | 	
 	Modules		               | lower_with_under   | _lower_with_under    |
@@ -298,15 +298,19 @@ style.
     backslashes in the string. It improves readability.
     
   - Use the format method or the % operator for formatting strings. Use your best 
-    judgement to decide between + and % (or format) though.
+    judgement to decide between + and % (or format). In particular, + should only be used 
+    for combining string variables, not for formatting strings. 
     
     ```python
-    # Examples
+    # Good
     x = a + b
-    x = '%s, %s!' % (message1, message2)
-    x = '{}, {}!'.format(message1, message2)
-    x = 'name: %s; score: %d' % (name, n)
-    x = 'name: {}; score: {}'.format(name, n)    
+    x = "%s, %s!" % (message1, message2)
+    x = "{}, {}!".format(message1, message2)
+    x = "name: %s; score: %d" % (name, n)
+    x = "name: {}; score: {}".format(name, n)    
+    
+    # Bad
+    x = "name: " + name + "; score: " + str(n)        
     ```
 
 **[⬆ back to top](#table-of-contents)**
