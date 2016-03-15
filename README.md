@@ -370,23 +370,3 @@ style.
     or generator expressions can be hard to read.
       
 **[⬆ back to top](#table-of-contents)**
-
-## Code Analysis in Eclipse
-
-  - Run `pep8` or `pylint` over your code.
-  	* Enable pep8 in Eclipse with PyDev plugin: Go to Eclipse->Preferences. Choose 
-  	  PyDev->Editor->Code Analysis. Go to pep8.py tab. Choose the radio button for warning.
-  	  Click Apply, then OK. Restart Eclipse.
-  	* (Optionally) Enable pylint in Eclipse: Install pylint. Go to Eclipse->Preferences.
-  	  Choose PyDev->PyLint. Enable the Use PyLint option. Add the path to the PyLint 
-  	  executable. Click Apply, then OK. Restart Eclipse.
-    
-**[⬆ back to top](#table-of-contents)**
-
-## Auto Code Formatting in Eclipse
-
-  - Enable `autopep8` over your code using pep8 style: Go to Eclipse->Preferences. Choose 
-  	  PyDev->Editor->Code Style->Code Formatter. Check Use autopep8.py for code formatting.  	  
-  	  Click Apply, then OK. Restart Eclipse.  	
-    
-**[⬆ back to top](#table-of-contents)**
