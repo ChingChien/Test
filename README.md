@@ -302,9 +302,9 @@ sentence should end in a period.
   - When a string contains single or double quote characters, use the other one to avoid 
     backslashes in the string. It improves readability.
     
-  - Use the format method or the % operator for formatting strings. Use your best 
-    judgement to decide between + and % (or format). In particular, + should only be used 
-    for combining string variables, not for formatting strings. 
+  - Use the format method or the `%` operator for formatting strings. Use your best 
+    judgement to decide between `+` and `%` (or format). In particular, `+` should only 
+    be used for combining string variables, not for formatting strings. 
     
     ```python
     # Good
