@@ -21,7 +21,8 @@ style.
   1. [Strings](#strings)
   1. [Source File Encoding](#source-file-encoding)
   1. [Programming Recommendations](#programming-recommendations)
-  1. [My Testing](#my-testing)
+  1. [Code Analysis in Eclipse](#code-analysis-in-eclipse)
+  1. [Auto Code Formatting in Eclipse](#auto-code-formatting-in-eclipse)
 
 ## Semicolons
 
@@ -323,17 +324,70 @@ style.
 
 ## Programming Recommendations
 
-  - Comparisons to singletons.  
+  The following recommendations includes a subset from [PEP 0008](https://www.python.org/dev/peps/pep-0008/#programming-recommendations) 
+  and [Google Python style guide](https://google.github.io/styleguide/pyguide.html#Python_Language_Rules).
+
+  - Comparisons to singletons like `None` should always be done with `is` or `is not` , 
+    never the equality operators.
+  - Use `is not` operator rather than `not ... is` .
+  - Always use a `def` statement instead of an assignment statement that binds a `lambda` 
+    expression directly to an identifier.
+  - Derive exceptions from `Exception` rather than `BaseException`.
+  - Use exception chaining appropriately.
+  - When raising an exception in Python 2, use `raise ValueError('message')` instead of 
+    the older form `raise ValueError, 'message'` .
+  - When catching exceptions, mention specific exceptions whenever possible instead of 
+    using a bare `except:` clause. 
+  - When a resource is local to a particular section of code, use a `with` statement to 
+    ensure it is cleaned up promptly and reliably after use. A `try/finally` statement 
+    is also acceptable.
+  - Use `''.startswith()` and `''.endswith()` instead of string slicing to check for 
+    prefixes or suffixes.
+  - Don't write string literals that rely on significant trailing whitespace. 
+  - Object type comparisons should always use isinstance() instead of comparing types 
+    directly.
+    
+    ```python
+    # Good
+    if isinstance(obj, int):
+    
+    # Bad
+    if type(obj) is type(1):
+    ```
+    
+  - Don't compare boolean values to True or False using == .
+  	
+  	```python
+    # Good
+    if greeting:
+    
+    # Bad
+    if greeting == True:
+    ```
+
+  - Avoid global variables.
+  - List comprehensions are okay to use for simple cases. Complicated list comprehensions 
+    or generator expressions can be hard to read.
       
 **[⬆ back to top](#table-of-contents)**
 
-## My Testing
+## Code Analysis in Eclipse
 
-  - Code in the core Python distribution should always use UTF-8.
-  
-    ```python
-    # In source header you can declare encoding as below.
-    # -*- coding: utf-8 -*-
-    ```
+  - Run `pep8` or `pylint` over your code.
+  	* Enable pep8 in Eclipse with PyDev plugin: Go to Eclipse->Preferences. Choose 
+  	  PyDev->Editor->Code Analysis. Go to pep8.py tab. Choose the radio button for warning.
+  	  Click Apply, then OK. Restart Eclipse.
+  	* (Optionally) Enable pylint in Eclipse: Install pylint. Go to Eclipse->Preferences.
+  	  Choose PyDev->PyLint. Enable the Use PyLint option. Add the path to the PyLint 
+  	  executable. Click Apply, then OK. Restart Eclipse.
     
 **[⬆ back to top](#table-of-contents)**
+
+## Auto Code Formatting in Eclipse
+
+  - Enable `autopep8` over your code using pep8 style: Go to Eclipse->Preferences. Choose 
+  	  PyDev->Editor->Code Style->Code Formatter. Check Use autopep8.py for code formatting.  	  
+  	  Click Apply, then OK. Restart Eclipse.  	
+    
+**[⬆ back to top](#table-of-contents)**
+
