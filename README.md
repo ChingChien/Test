@@ -323,8 +323,7 @@ style.
 
 ## Programming Recommendations
 
-  - Comparisons to singletons like `None` should always be done with `is` or `is not` , 
-    never the equality operators.  
+  - Comparisons to singletons.  
       
 **[⬆ back to top](#table-of-contents)**
 
