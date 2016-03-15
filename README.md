@@ -266,7 +266,7 @@ style.
   	* Place related classes and top-level functions together in a module.
   	* Use CapWords for class names, but lower_with_under.py for module names.
   	
-  - Naming Summary (guidelines derived from Guido's recommendations):
+  - Naming Summary (guidelines from Guido's recommendations):
   
 	Type		               | Pubic	    		| Internal			   |	
 	-------------------------- | ------------------ | -------------------- |
