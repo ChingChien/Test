@@ -313,8 +313,9 @@ Additionally, it's highly recommended using pylint for style and syntax validati
 	Method Names		       | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private)   |	
 	Function/Method Parameters | lower_with_under   | _lower_with_under    |	
 	Local Variables		       | lower_with_under   | _lower_with_under    |
-			
 	
+	Note: "Internal" means internal to a module or protected or private within a class.
+				
 **[⬆ back to top](#table-of-contents)**
 
 ## Strings
