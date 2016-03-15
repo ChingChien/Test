@@ -323,9 +323,6 @@ style.
 
 ## Programming Recommendations
 
-  ```The following recommendations includes a subset from [PEP 0008](https://www.python.org/dev/peps/pep-0008/#programming-recommendations) 
-  and [Google Python style guide](https://google.github.io/styleguide/pyguide.html#Python_Language_Rules).```
-
   - Comparisons to singletons like `None` should always be done with `is` or `is not` , 
     never the equality operators.
   - Use `is not` operator rather than `not ... is` .
