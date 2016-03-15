@@ -239,10 +239,10 @@ sentence should end in a period.
   - Imports should be on separate lines and are always put at the top of the file, just 
     after any module comments and doc strings and before module globals and constants. 
     Imports should be grouped with the order being most generic to least generic as below.
+    You should put a blank line between each group of imports.    
     * standard library imports
     * related third-party imports
     * local application-specific imports
-    You should put a blank line between each group of imports.
     
   - Absolute imports are recommended, as they are usually more readable and tend to be 
     better behaved (or at least give better error messages).
