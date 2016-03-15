@@ -220,14 +220,13 @@ style.
         """Performs operation blah."""
     ```
 
-  - TODO Comments: Use TODO comments for code that is temporary, a short-term,  
-    good-enough, but not perfect solution. TODOs should include the string TODO in all 
-    caps, followed by the e-mail address (in parentheses), or other identifier of the 
-    person who can provide context about the problem referenced by the TODO. 
-    A comment explaining what there is to do is required. The main TODO purpose is 
-	to have a consistent format that can be searched to find the person who can provide 
-	more details upon request. Note a TODO is not a commitment that the person referenced 
-	will fix the problem.
+  - TODO Comments: Use TODO comments for code that is temporary, a short-term, good-enough, 
+    but not perfect solution. TODOs should include the string TODO in all caps, followed 
+    by the e-mail address (in parentheses), or other identifier of the person who can 
+    provide context about the problem referenced by the TODO. A comment explaining what 
+    there is to do is required. The main TODO purpose is to have a consistent format that 
+    can be searched to find the person who can provide more details upon request. Note a 
+    TODO is not a commitment that the person referenced will fix the problem.
 	
 	```python
     # TODO(xyz@surfline.com): Improve this algorithm using advanced sorting approach.
