@@ -2,8 +2,8 @@
 
 ## Introduction
 Python is the a scripting language used at. This style guide is a list of dos and don'ts 
-for Python programs. In particular, it is based on PEP8 and the practice guide of Google 
-Python style guide.
+for Python programs. In particular, it is based on [PEP 0008](https://www.python.org/dev/peps/pep-0008/) 
+and the practice guide of [Google Python style guide](https://google.github.io/styleguide/pyguide.html).
 
 In overall, *readability* and *consistency* are the keys for Python developers, in coding 
 style. To help you format code correctly with Eclipse IDE, we've created a settings file 
@@ -21,6 +21,8 @@ Additionally, it's highly recommended using pylint for style and syntax validati
   1. [Imports](#imports)
   1. [Naming](#naming)
   1. [Strings](#strings)
+  1. [Source File Encoding](#source-file-encoding)
+  1. [Programming Recommendations](#programming-recommendations)
 
 ## Semicolons
 
@@ -308,3 +310,24 @@ Additionally, it's highly recommended using pylint for style and syntax validati
     ```
 
 **[⬆ back to top](#table-of-contents)**
+
+## Source File Encoding
+
+  - Code in the core Python distribution should always use UTF-8.
+  
+    ```python
+    # In source header you can declare encoding as below.
+    # -*- coding: utf-8 -*-
+    ```
+**[⬆ back to top](#table-of-contents)**
+
+## Programming Recommendations
+
+  - Code in the core Python distribution should always use UTF-8.
+  
+    ```python
+    # In source header you can declare encoding as below.
+    # -*- coding: utf-8 -*-
+    ```
+**[⬆ back to top](#table-of-contents)**
+
