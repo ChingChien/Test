@@ -324,46 +324,7 @@ style.
 ## Programming Recommendations
 
   - Comparisons to singletons like `None` should always be done with `is` or `is not` , 
-    never the equality operators.
-  - Use `is not` operator rather than `not ... is` .
-  - Always use a `def` statement instead of an assignment statement that binds a `lambda` 
-    expression directly to an identifier.
-  - Derive exceptions from `Exception` rather than `BaseException`.
-  - Use exception chaining appropriately.
-  - When raising an exception in Python 2, use `raise ValueError('message')` instead of 
-    the older form `raise ValueError, 'message'` .
-  - When catching exceptions, mention specific exceptions whenever possible instead of 
-    using a bare `except:` clause. 
-  - When a resource is local to a particular section of code, use a `with` statement to 
-    ensure it is cleaned up promptly and reliably after use. A `try/finally` statement 
-    is also acceptable.
-  - Use `''.startswith()` and `''.endswith()` instead of string slicing to check for 
-    prefixes or suffixes.
-  - Don't write string literals that rely on significant trailing whitespace. 
-  - Object type comparisons should always use isinstance() instead of comparing types 
-    directly.
-    
-    ```python
-    # Good
-    if isinstance(obj, int):
-    
-    # Bad
-    if type(obj) is type(1):
-    ```
-    
-  - Don't compare boolean values to True or False using == .
-  	
-  	```python
-    # Good
-    if greeting:
-    
-    # Bad
-    if greeting == True:
-    ```
-
-  - Avoid global variables.
-  - List comprehensions are okay to use for simple cases. Complicated list comprehensions 
-    or generator expressions can be hard to read.
+    never the equality operators.  
       
 **[⬆ back to top](#table-of-contents)**
 
