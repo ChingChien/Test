@@ -15,7 +15,7 @@ As part of deployment process, Jenkins job should handle this deployment during 
 * [Luigi](https://github.com/spotify/luigi): Workflow management
 * [boto](https://github.com/boto/boto): Interface to Amazon Web Services
 
-#### Deploying to and Running on Spark
+#### Deploying to AWS cluster and Running on Spark
 
 To deploy the luigi and related job, we setup a Jenkins job.
 It will deploy the scripts from [science-data-extraction repo](https://github.com/Surfline/science-data-extraction)
