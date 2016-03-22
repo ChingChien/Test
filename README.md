@@ -28,6 +28,8 @@ For example, run the following will take in the parameters from the file `LUIGI_
 `export LUIGI_CONFIG_PATH=<Path to config file>;export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file <Python app file> --app-opts "<Python app arguments>" --time-tag $TIME_TAG`
   
   * `LUIGI_CONFIG_PATH=<Path to config file>`: store all configuration. Samples config files in this repo:
+  	- `bestwind_local.cfg`: configuration to run the job locally
+  	- `bestwind_aws.cfg`: configuration to run the job in AWS EMR
   * `TIME_TAG`: obtain current time for tracking and task differentiation
   * `--app-file <Python app file>`: set Python file to `<Python app file>` to submit with Spark
   * `--app-opts "<Python app arguments>"`: set options with submitted Python file 
