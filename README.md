@@ -23,9 +23,9 @@ to the dedicated AWS EMR cluster. It will also deploy the relevant configuration
 
 Once the scripts and configuration files are deployed, you can run ETL process with the `wf_spark_etl.py` Luigi script.
  
-For example, run the following will take in the parameters from the file `LUIGI_CONFIG_PATH`, invoke wf_spark_etl.py with the class ModelCheckAndProcess and submit the PySpark `app-file` with additional arguments `app-opts`. 
+For example, run the following will take in the parameters from the file `LUIGI_CONFIG_PATH`, invoke `wf_spark_etl.py` with the class `ModelCheckAndProcess` and submit the PySpark `app-file` with additional arguments `app-opts`. 
 
-  `export LUIGI_CONFIG_PATH=<Path to config file>;export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file <Python app file> --app-opts "<Python app arguments>" --time-tag $TIME_TAG`
+`export LUIGI_CONFIG_PATH=<Path to config file>;export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file <Python app file> --app-opts "<Python app arguments>" --time-tag $TIME_TAG`
   
   * `LUIGI_CONFIG_PATH=<Path to config file>`: store all configuration. Samples config files in this repo:
   * `TIME_TAG`: obtain current time for tracking and task differentiation
