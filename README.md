@@ -15,12 +15,13 @@ As part of deployment process, Jenkins job should handle this deployment during 
 * [Luigi](https://github.com/spotify/luigi): Workflow management
 * [boto](https://github.com/boto/boto): Interface to Amazon Web Services
 
-#### Deploying to AWS EMR cluster and Running on Spark
+#### Deploying to AWS EMR cluster
 
-To deploy the Luigi scripts and related job, we setup a Jenkins job.
+To deploy the Luigi scripts and related job, we setup a Jenkins job (WIP).
 It will deploy the scripts from [science-data-extraction repo](https://github.com/Surfline/science-data-extraction)
 to the dedicated AWS EMR cluster. It will also deploy the relevant configuration files. 
 
+#### Running on Spark
 Once the scripts and configuration files are deployed, you can run ETL process with the `wf_spark_etl.py` Luigi script.
  
 **For example:**
