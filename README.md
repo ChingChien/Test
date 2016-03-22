@@ -4,8 +4,8 @@
 
 #### Design
 This project is designed by 
-1. utilizing Luigi for AWS job workflow control and management
-2. making the parameters configurable as far as possible 
+* utilizing Luigi for AWS job workflow control and management
+* making the parameters configurable as far as possible 
 
 #### Deployment Dependencies
 
