@@ -15,13 +15,14 @@ As part of deployment process, Jenkins job should handle this deployment during 
 * [Luigi](https://github.com/spotify/luigi): Workflow management
 * [boto](https://github.com/boto/boto): Interface to Amazon Web Services
 
-#### Deploying to AWS cluster and Running on Spark
+#### Deploying to AWS EMR cluster and Running on Spark
 
-To deploy the luigi and related job, we setup a Jenkins job.
+To deploy the Luigi scripts and related job, we setup a Jenkins job.
 It will deploy the scripts from [science-data-extraction repo](https://github.com/Surfline/science-data-extraction)
 to the dedicated AWS EMR cluster. It will also deploy the relevant configuration files. 
 
-Once the scripts and configuration files are deployed, you can run ETL process with the `wf_spark_etl.py` Luigi script. 
+Once the scripts and configuration files are deployed, you can run ETL process with the `wf_spark_etl.py` Luigi script.
+ 
 For example, run the following will take in the parameters from the file `LUIGI_CONFIG_PATH`, invoke wf_spark_etl.py with the class ModelCheckAndProcess and submit the PySpark `app-file` with additional arguments `app-opts`. 
 
   `export LUIGI_CONFIG_PATH=<Path to config file>;export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file <Python app file> --app-opts "<Python app arguments>" --time-tag $TIME_TAG`
