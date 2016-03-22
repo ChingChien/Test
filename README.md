@@ -23,7 +23,9 @@ to the dedicated AWS EMR cluster. It will also deploy the relevant configuration
 
 Once the scripts and configuration files are deployed, you can run ETL process with the `wf_spark_etl.py` Luigi script.
  
-For example, run the following will take in the parameters from the file `LUIGI_CONFIG_PATH`, invoke `wf_spark_etl.py` with the class `ModelCheckAndProcess` and submit the PySpark `app-file` with additional arguments `app-opts`. 
+**For example:**
+ 
+run the following will take in the parameters from the file `LUIGI_CONFIG_PATH`, invoke `wf_spark_etl.py` with the class `ModelCheckAndProcess` and submit the PySpark `app-file` with additional arguments `app-opts`. 
 
 `export LUIGI_CONFIG_PATH=<Path to config file>;export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file <Python app file> --app-opts "<Python app arguments>" --time-tag $TIME_TAG`
   
@@ -35,6 +37,7 @@ For example, run the following will take in the parameters from the file `LUIGI_
   * `--app-opts "<Python app arguments>"`: set options with submitted Python file 
 
 **Concrete example (replace the values for your own settings)**
+
 `export LUIGI_CONFIG_PATH=/opt/science-data-extraction/bestwind_local.cfg; export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file /opt/science-data-extraction/SparkExtract.py --app-opts "--s3_data xxx --s3_date yyy" --time-tag $TIME_TAG`
 #### Eclipse Setup (WIP)
 
