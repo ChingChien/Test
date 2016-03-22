@@ -12,8 +12,8 @@ This project is designed by
 You need several Python libraries deployed to run the Luigi work. 
 As part of deployment process, Jenkins job should handle this deployment during bootstrapping. 
 
-* [Luigi](https://github.com/spotify/luigi)
-* [boto](https://github.com/boto/boto) 
+* [Luigi](https://github.com/spotify/luigi): Workflow management
+* [boto](https://github.com/boto/boto): Interface to Amazon Web Services
 
 #### Deploying to and Running on Spark
 
