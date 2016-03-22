@@ -34,7 +34,7 @@ For example, run the following will take in the parameters from the file `LUIGI_
   * `--app-file <Python app file>`: set Python file to `<Python app file>` to submit with Spark
   * `--app-opts "<Python app arguments>"`: set options with submitted Python file 
 
-Concrete example (replace the values for your own settings)
+**Concrete example (replace the values for your own settings)**
 `export LUIGI_CONFIG_PATH=/opt/science-data-extraction/bestwind_local.cfg; export TIME_TAG=$(date +%s); python wf_spark_etl.py ModelCheckAndProcess --app-file /opt/science-data-extraction/SparkExtract.py --app-opts "--s3_data xxx --s3_date yyy" --time-tag $TIME_TAG`
 #### Eclipse Setup (WIP)
 
